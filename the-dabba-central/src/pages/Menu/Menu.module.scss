@@ -1,0 +1,19 @@
+@use "/src/styles/_variables.scss" as var;
+
+.section {
+  padding: clamp(32px, 5vw, 48px) 0;
+}
+
+.container {
+  @include var.container;
+}
+
+.viewing {
+  text-align: center;
+  color: var.$text-muted;
+  margin-top: 28px;
+  span {
+    color: var.$brand-deep;
+    font-weight: 800;
+  }
+}

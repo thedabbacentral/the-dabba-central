@@ -1,0 +1,46 @@
+@use "/src/styles/_variables.scss" as var;
+
+.toggle {
+  position: relative;
+  display: grid;
+  background: var.$white;
+  border: 1px solid var.$border;
+  border-radius: 999px;
+  box-shadow: 0 8px 18px rgba(14, 34, 51, 0.08);
+  overflow: hidden;
+  --pad: 4px;
+
+  .thumb {
+    position: absolute;
+    z-index: 1;
+    top: var(--pad);
+    bottom: var(--pad);
+    left: calc(
+      var(--pad) + var(--index) * ((100% - (var(--pad) * 2)) / var(--count))
+    );
+    width: calc((100% - (var(--pad) * 2)) / var(--count));
+    border-radius: 999px;
+    @include var.gradient-orange;
+    box-shadow: var.$shadow-cta;
+    transition: left 200ms ease, width 200ms ease;
+  }
+
+  .option {
+    position: relative;
+    z-index: 2;
+    padding: 12px 20px;
+    font-weight: 600;
+    color: var.$brand-deep;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    transition: color 160ms ease, transform 160ms ease;
+
+    &:hover {
+      transform: translateY(-1px);
+    }
+    &.active {
+      color: var.$white;
+    }
+  }
+}

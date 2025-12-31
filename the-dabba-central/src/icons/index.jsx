@@ -1,0 +1,24 @@
+import Icon from './Icon';
+
+export const CheckCircle = props => <Icon {...props} name="check_circle" />;
+export const CheckIcon = props => <Icon {...props} name="check_icon" />;
+export const ChefHat = props => <Icon {...props} name="chef_hat" />;
+export const Clipboard = props => <Icon {...props} name="clipboard" />;
+export const ClockIcon = props => <Icon {...props} name="clock_icon" />;
+export const Droplet = props => <Icon {...props} name="droplet" />;
+export const ForkAndKnife = props => <Icon {...props} name="fork_and_knife" />;
+export const GoogleLogo = props => <Icon {...props} name="google_logo" />;
+export const Info = props => <Icon {...props} name="info" />;
+export const Leaf = props => <Icon {...props} name="leaf" />;
+export const LeafIcon = props => <Icon {...props} name="leaf_icon" />;
+export const Mail = props => <Icon {...props} name="mail" />;
+export const Meat = props => <Icon {...props} name="meat" />;
+export const Phone = props => <Icon {...props} name="phone" />;
+export const Pin = props => <Icon {...props} name="pin" />;
+export const Refresh = props => <Icon {...props} name="refresh" />;
+export const ShieldCheck = props => <Icon {...props} name="shield_check" />;
+export const Spark = props => <Icon {...props} name="spark" />;
+export const Star = props => <Icon {...props} name="star" />;
+export const Users = props => <Icon {...props} name="users" />;
+export const UtensilsIcon = props => <Icon {...props} name="utensils_icon" />;
+export const Wind = props => <Icon {...props} name="wind" />;

@@ -1,0 +1,63 @@
+@use "./_variables.scss" as *;
+
+:root {
+  --brand-orange-start: #{$brand-orange-start};
+  --brand-orange-end: #{$brand-orange-end};
+  --brand-deep: #{$brand-deep};
+  --text-muted: #{$text-muted};
+  --bg-cream: #{$bg-cream};
+  --white: #{$white};
+  --border: #{$border};
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: $font-family-base;
+  color: $brand-deep;
+  background: radial-gradient(1200px 1200px at 90% 20%, #fff5e9 0%, #ffffff 50%)
+    fixed;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+}
+
+.container {
+  @include container;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(50%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}

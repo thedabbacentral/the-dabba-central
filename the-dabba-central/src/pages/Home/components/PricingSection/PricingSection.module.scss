@@ -1,0 +1,172 @@
+@use "/src/styles/_variables.scss" as var;
+
+.pricing {
+  padding: clamp(26px, 5vw, 64px) 0 clamp(28px, 6vw, 76px);
+  /* Match creamy halo behind pricing area */
+  background: radial-gradient(
+    1200px 1200px at 50% -120px,
+    var.$bg-cream-strong 0%,
+    var.$white 65%
+  );
+  .header {
+    text-align: center;
+    margin: 0 0 clamp(22px, 4vw, 36px);
+
+    .title {
+      margin: 0 0 8px;
+      font-weight: 800;
+      font-size: clamp(40px, 6vw, 76px);
+      letter-spacing: -0.5px;
+      color: var.$brand-deep;
+      .accent {
+        color: var.$brand-orange;
+      }
+    }
+
+    .subtitle {
+      margin: 0;
+      font-size: clamp(16px, 1.8vw, 20px);
+      color: var.$text-muted;
+      max-width: 70ch;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+  .featuresGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: clamp(14px, 2.4vw, 22px);
+    margin: clamp(16px, 4vw, 28px) 0 clamp(16px, 5vw, 36px);
+  }
+
+  .toggleRow {
+    display: flex;
+    justify-content: center;
+    margin: 0 0 clamp(18px, 4vw, 28px);
+  }
+
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: clamp(18px, 3vw, 28px);
+    margin: 0 0 clamp(20px, 5vw, 32px);
+  }
+
+  .individualCard {
+    display: block;
+    background: var.$white;
+    border: 1px solid var.$border;
+    border-radius: var.$radius-xl;
+    box-shadow: var.$shadow-card;
+    padding: clamp(18px, 3.4vw, 24px);
+    .individualTitle {
+      margin: 0;
+      font-weight: 700;
+      font-size: clamp(18px, 2.2vw, 24px);
+    }
+    .priceRow {
+      margin-top: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      align-items: center;
+      color: var.$brand-deep;
+      font-weight: 600;
+    }
+    .featuresRow {
+      margin-top: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      .individualList {
+        margin-top: 14px;
+        list-style: none;
+        padding: 0;
+        display: grid;
+        gap: 10px;
+        color: var.$brand-deep;
+      }
+      .individualCta {
+        flex: 0 0 auto;
+      }
+    }
+  }
+  .dot,
+  .tick {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 8px;
+    translate: 0 1px;
+  }
+  .tick {
+    width: 16px;
+    height: 16px;
+    border-radius: 4px;
+    background: #e9f7ee;
+    position: relative;
+  }
+  .tick::after {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 2px;
+    width: 6px;
+    height: 9px;
+    border: 2px solid #21a149;
+    border-top: 0;
+    border-left: 0;
+    transform: rotate(45deg);
+  }
+  .green {
+    background: var.$green;
+  }
+  .red {
+    background: #e53935;
+  }
+
+  .notice {
+    margin-top: clamp(16px, 4vw, 26px);
+    background: #fff6ec;
+    border: 1px solid #ffd9b3;
+    color: #9b4b1f;
+    border-radius: var.$radius-lg;
+    padding: clamp(10px, 2.2vw, 14px) clamp(12px, 2.4vw, 16px);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    .noticeIcon {
+      display: inline-grid;
+      place-items: center;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      color: #fff;
+      background: var.$brand-orange;
+      font-weight: 700;
+      font-size: 12px;
+    }
+  }
+
+  @media (max-width: var.$bp-md) {
+    .featuresGrid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .cards {
+      grid-template-columns: 1fr;
+    }
+    .featuresRow {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  @media (max-width: var.$bp-sm) {
+    .featuresGrid {
+      grid-template-columns: 1fr;
+    }
+  }
+}

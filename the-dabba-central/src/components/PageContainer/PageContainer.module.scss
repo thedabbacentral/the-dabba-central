@@ -1,0 +1,22 @@
+@use "../../styles/_variables.scss" as *;
+
+.page {
+  min-height: 100dvh;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  background: radial-gradient(1200px 1200px at 90% 20%, #fff5e9 0%, #ffffff 50%)
+    fixed;
+}
+
+.main {
+  display: block;
+}
+
+@media (max-width: $bp-md) {
+  .main {
+    // Mobile-safe spacing if any content needs breathing room by default.
+    // Sections like Hero already manage their own padding.
+  }
+}
+
+

@@ -1,0 +1,90 @@
+@use "/src/styles/_variables.scss" as var;
+
+.section {
+  position: relative;
+  padding: clamp(30px, 6vw, 90px) 0;
+  background: #0f1823; /* Deep navy to contrast */
+  color: #fff;
+  overflow: hidden;
+  .utensils {
+    position: absolute;
+    right: -6%;
+    top: 8%;
+    width: min(60%, 680px);
+    height: auto;
+    opacity: 0.07;
+    transform: rotate(-18deg);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .header {
+    text-align: center;
+    margin: 0 0 clamp(18px, 4vw, 28px);
+    .title {
+      margin: 0 0 8px;
+      font-weight: 800;
+      font-size: clamp(24px, 3.8vw, 40px);
+      color: #fff;
+    }
+    .subtitle {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.75);
+      font-size: clamp(14px, 1.8vw, 16px);
+    }
+  }
+
+  .grid {
+    position: relative;
+    z-index: 1; /* above utensils */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: clamp(16px, 3vw, 28px);
+    .item {
+      position: relative;
+      padding-left: 0;
+      .num {
+        position: absolute;
+        left: -6px;
+        top: -32px;
+        font-weight: 800;
+        font-size: clamp(56px, 7vw, 100px);
+        color: rgba(255, 255, 255, 0.08);
+        line-height: 0.8;
+        pointer-events: none;
+        z-index: 1; /* numbers over utensils */
+      }
+      .itemTitle {
+        color: var.$brand-orange;
+        font-weight: 800;
+        font-size: clamp(16px, 2.1vw, 20px);
+        margin: 0 0 8px;
+        position: relative;
+        z-index: 2;
+      }
+      .itemDesc {
+        margin: 0;
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 15px;
+        position: relative;
+        z-index: 2;
+      }
+    }
+  }
+
+  @media (max-width: var.$bp-lg) {
+    .grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: var.$bp-sm) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+    .num {
+      left: -2px;
+      top: -18px;
+      font-size: clamp(44px, 9vw, 72px);
+    }
+  }
+}

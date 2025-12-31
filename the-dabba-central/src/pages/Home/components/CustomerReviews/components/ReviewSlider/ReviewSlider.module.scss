@@ -1,0 +1,67 @@
+@use "/src/styles/_variables.scss" as var;
+
+.slider {
+  position: relative;
+  width: 100%;
+  .viewport {
+    overflow: hidden;
+    border-radius: 24px;
+    width: 100%;
+    .track {
+      display: flex;
+      width: 100%;
+      .slide {
+        padding: clamp(8px, 3vw, 10px);
+        box-sizing: border-box; /* prevent percentage width + padding overflow */
+        min-width: 0; /* allow inner card to shrink on tiny screens */
+      }
+    }
+  }
+  .controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin-top: 12px;
+    .nav {
+      z-index: 3;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: 0;
+      background: var.$white;
+      box-shadow: var.$shadow-card;
+      cursor: pointer;
+      color: var.$brand-deep;
+      font-size: 22px;
+      line-height: 1;
+    }
+    .dots {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 999px;
+        background: #e1e5ea;
+        border: 0;
+        &.active {
+          background: var.$brand-orange;
+          width: 20px;
+        }
+      }
+    }
+
+    @media (max-width: 320px) {
+      .nav {
+        width: 36px;
+        height: 36px;
+        font-size: 18px;
+      }
+      .dots {
+        gap: 6px;
+      }
+    }
+  }
+}

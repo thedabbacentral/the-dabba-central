@@ -1,0 +1,49 @@
+@use "/src/styles/_variables.scss" as var;
+
+.card {
+  background: #fff;
+  border: 1px solid #e6eefc;
+  border-radius: 16px;
+  box-shadow: var.$shadow-card;
+  padding: clamp(14px, 2.6vw, 18px);
+}
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 8px;
+}
+.user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.name {
+  font-weight: 700;
+  color: var.$brand-deep;
+}
+.date {
+  font-size: 13px;
+  color: var.$text-muted;
+}
+.g {
+  width: 22px;
+  height: 22px;
+}
+.rating {
+  margin: 6px 0 8px;
+}
+.text {
+  color: var.$brand-deep;
+  margin: 0;
+  line-height: 1.6;
+}
+
+

@@ -7,11 +7,17 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "generate-icons": "node ./src/icons/scripts/generate-icon-system.js"
   },
   "dependencies": {
+    "path": "^0.12.7",
     "react": "^19.2.0",
-    "react-dom": "^19.2.0"
+    "react-dom": "^19.2.0",
+    "react-router-dom": "^6.28.0",
+    "react-slick": "^0.31.0",
+    "slick-carousel": "^1.8.1",
+    "vite-plugin-svgr": "^4.5.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",
@@ -23,6 +29,8 @@
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-react-refresh": "^0.4.24",
     "globals": "^16.5.0",
+    "sass": "^1.97.1",
+    "sass-embedded": "^1.97.1",
     "vite": "^7.2.4"
   }
 }

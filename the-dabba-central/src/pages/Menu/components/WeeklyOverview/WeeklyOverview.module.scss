@@ -1,0 +1,57 @@
+@use "/src/styles/_variables.scss" as var;
+
+.overview {
+  margin-top: 20px;
+  .cap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var.$brand-deep;
+    font-weight: 800;
+    margin-bottom: 12px;
+    .chip {
+      background: #e9fbf1;
+      color: var.$green;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 12px;
+    }
+  }
+}
+
+.overviewGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.overviewCard {
+  border: 1px solid var.$border;
+  border-radius: 14px;
+  padding: 14px;
+  background: #fff;
+  .day {
+    color: var.$brand-orange;
+    font-weight: 800;
+    font-size: 12px;
+    margin-bottom: 6px;
+  }
+  .title {
+    font-weight: 800;
+    color: var.$brand-deep;
+  }
+  .sub {
+    margin-top: 2px;
+    color: var.$text-muted;
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 720px) {
+  .overviewGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+

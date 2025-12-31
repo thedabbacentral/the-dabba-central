@@ -1,0 +1,36 @@
+@use "/src/styles/_variables.scss" as var;
+
+.card {
+  background: var.$white;
+  border: 1px solid var.$border;
+  border-radius: var.$radius-xl;
+  box-shadow: var.$shadow-card;
+  text-align: center;
+  padding: clamp(18px, 3vw, 26px);
+  .icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: #fff1e7;
+    color: var.$brand-orange;
+    display: grid;
+    place-items: center;
+    font-size: 22px;
+    margin: 0 auto 10px;
+  }
+  .value {
+    font-weight: 800;
+    font-size: clamp(22px, 3vw, 32px);
+    color: var.$brand-deep;
+    .label {
+      color: var.$brand-deep;
+      font-weight: 600;
+      margin-top: 6px;
+    }
+    .subtitle {
+      color: var.$text-muted;
+      font-size: 14px;
+      margin-top: 2px;
+    }
+  }
+}
