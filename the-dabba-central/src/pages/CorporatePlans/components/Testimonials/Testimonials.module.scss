@@ -1,0 +1,78 @@
+@use "/src/styles/_variables.scss" as var;
+
+.section {
+  background: #ffffff;
+  padding: clamp(48px, 7vw, 96px) 0;
+
+  .container {
+    @include var.container;
+    .heading {
+      text-align: center;
+      color: var.$brand-deep;
+      font-weight: 800;
+      font-size: clamp(28px, 3.6vw, 44px);
+      margin: 0 0 clamp(28px, 4vw, 44px);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      .card {
+        position: relative;
+        background: #fff;
+        border: 1px solid var.$border;
+        border-radius: 16px;
+        padding: clamp(20px, 3vw, 28px);
+        box-shadow: var.$shadow-card;
+        .quotes {
+          position: absolute;
+          right: 18px;
+          top: 14px;
+          font-size: 28px;
+          color: #eaeef2;
+        }
+
+        .stars {
+          display: inline-flex;
+          gap: 6px;
+        }
+
+        .quote {
+          margin: 12px 0 24px;
+          font-size: clamp(16px, 1.8vw, 18px);
+          line-height: 1.7;
+          color: #3b4b5c;
+          font-style: italic;
+        }
+
+        .footer {
+          .name {
+            font-weight: 800;
+            color: var.$brand-deep;
+            margin-bottom: 6px;
+          }
+          .meta {
+            color: var.$text-muted;
+            font-size: 14px;
+          }
+        }
+      }
+    }
+    @media (min-width: 900px) {
+      .grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 28px;
+      }
+      .card {
+        padding: clamp(24px, 3.4vw, 34px);
+        border-radius: 20px;
+      }
+      .quotes {
+        right: 24px;
+        top: 18px;
+        font-size: 32px;
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+@use "/src/styles/_variables.scss" as var;
+
+.feature {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  align-items: start;
+  gap: 10px;
+
+  .icon {
+    display: inline-flex;
+  }
+  .featureTitle {
+    font-weight: 700;
+  }
+  .featureDesc {
+    color: var.$text-muted;
+    font-size: var.$caption;
+    margin-top: 4px;
+  }
+}

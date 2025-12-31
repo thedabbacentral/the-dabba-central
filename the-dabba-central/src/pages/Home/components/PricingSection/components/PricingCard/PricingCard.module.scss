@@ -1,0 +1,130 @@
+@use "/src/styles/_variables.scss" as var;
+
+.card {
+  position: relative;
+  background: var.$white;
+  border: 1.5px solid var.$border;
+  border-radius: var.$radius-xl;
+  box-shadow: var.$shadow-card;
+  padding: clamp(16px, 3vw, 22px);
+  transition: transform 180ms ease, border-color 180ms ease,
+    box-shadow 180ms ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    border-color: #ffb27a4d;
+    box-shadow: 0 16px 28px rgba(14, 34, 51, 0.1);
+  }
+  &.popular {
+    border-color: var.$brand-orange;
+  }
+
+  &.selected {
+    border-color: var.$brand-orange;
+    box-shadow: 0 0 0 3px rgba(255, 106, 0, 0.15), var.$shadow-card;
+  }
+
+  .badge {
+    position: absolute;
+    top: -12px;
+    right: 14px;
+    background: var.$brand-orange;
+    color: var.$white;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 8px 12px;
+    border-radius: 8px;
+    box-shadow: var.$shadow-cta;
+  }
+
+  .head {
+    margin-bottom: 16px;
+    .nameRow {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      .name {
+        margin: 0 0 4px;
+        font-weight: 800;
+        font-size: clamp(18px, 2.2vw, 22px);
+        color: var.$brand-deep;
+      }
+
+      .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        display: inline-block;
+        &.green {
+          background: var.$green;
+        }
+        &.red {
+          background: #e53935;
+        }
+      }
+    }
+    .subtitle {
+      color: var.$text-muted;
+      font-size: 14px;
+      margin-top: 2px;
+    }
+    .priceRow {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      margin: 8px 0 4px;
+      .price {
+        font-weight: 800;
+        font-size: clamp(28px, 3.6vw, 40px);
+        color: var.$brand-deep;
+        transition: opacity 160ms ease;
+      }
+      .per {
+        color: var.$text-muted;
+      }
+    }
+    .meals {
+      color: var.$text-muted;
+      font-size: 14px;
+    }
+  }
+
+  .ctaRow {
+    margin: 14px 0 10px;
+    .fullWidth {
+      width: 100%;
+    }
+  }
+
+  .features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 10px;
+    color: var.$brand-deep;
+
+    .tick {
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      border-radius: 4px;
+      background: #e9f7ee;
+      margin-right: 8px;
+      position: relative;
+      translate: 0 3px;
+      &::after {
+        content: "";
+        position: absolute;
+        left: 4px;
+        top: 2px;
+        width: 6px;
+        height: 9px;
+        border: 2px solid #21a149;
+        border-top: 0;
+        border-left: 0;
+        transform: rotate(45deg);
+      }
+    }
+  }
+}

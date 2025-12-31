@@ -1,0 +1,53 @@
+@use "/src/styles/_variables.scss" as var;
+
+.section {
+  padding: clamp(24px, 4.2vw, 48px) 0 clamp(28px, 5vw, 64px);
+  background: radial-gradient(
+    1200px 1200px at 90% 20%,
+    var.$bg-cream 0%,
+    var.$white 55%
+  );
+  .panel {
+    background: var.$white;
+    border-radius: var.$radius-xl;
+    box-shadow: var.$shadow-card;
+    padding: clamp(20px, 5vw, 48px) clamp(16px, 5vw, 56px);
+    .header {
+      text-align: center;
+      margin: 0 0 clamp(16px, 3.8vw, 36px);
+
+      .title {
+        margin: 0 0 8px;
+        font-weight: 800;
+        font-size: clamp(28px, 3.5vw, 44px);
+        letter-spacing: -0.3px;
+        color: var.$brand-deep;
+      }
+
+      .subtitle {
+        margin: 0;
+        color: var.$text-muted;
+        font-size: clamp(16px, 1.6vw, 20px);
+      }
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: clamp(16px, 3vw, 32px);
+      align-items: start;
+    }
+
+    @media (max-width: var.$bp-md) {
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: var.$bp-sm) {
+      .grid {
+        grid-template-columns: 1fr;
+        gap: clamp(18px, 4vw, 28px);
+      }
+    }
+  }
+}

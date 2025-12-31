@@ -1,0 +1,41 @@
+@use "/src/styles/_variables.scss" as var;
+
+.card {
+  background: var.$white;
+  border: 1px solid var.$border;
+  border-radius: var.$radius-xl;
+  padding: clamp(16px, 2.8vw, 22px);
+  box-shadow: var.$shadow-card;
+  transition: transform 180ms ease, box-shadow 180ms ease,
+    border-color 180ms ease;
+
+  &:hover {
+    transform: translateY(-3px);
+    border-color: #dfe3e8;
+  }
+
+  .icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: #fff2e7;
+    display: grid;
+    place-items: center;
+    color: var.$brand-orange;
+    font-size: 20px;
+    margin-bottom: 12px;
+  }
+
+  .heading {
+    margin: 0 0 6px;
+    font-weight: 700;
+    color: var.$brand-deep;
+    font-size: clamp(16px, 1.9vw, 20px);
+  }
+
+  .desc {
+    margin: 0;
+    color: var.$text-muted;
+    font-size: 15px;
+  }
+}

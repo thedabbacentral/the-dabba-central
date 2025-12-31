@@ -1,0 +1,33 @@
+@use "/src/styles/_variables.scss" as var;
+
+.sticky {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 12px;
+  padding: 0 16px;
+  z-index: 1000;
+  transition: transform 220ms ease;
+}
+
+.hidden {
+  transform: translateY(140%);
+}
+
+.fullBtn {
+  width: 100%;
+  border-radius: 20px;
+}
+
+.arrow {
+  font-weight: 700;
+}
+
+/* Show only on small screens */
+@media (min-width: 768px) {
+  .sticky {
+    display: none;
+  }
+}
+
+

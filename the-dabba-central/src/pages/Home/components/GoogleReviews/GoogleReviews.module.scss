@@ -1,0 +1,73 @@
+@use "/src/styles/_variables.scss" as var;
+
+.section {
+  padding: clamp(26px, 5vw, 64px) 0 clamp(28px, 6vw, 76px);
+}
+
+.panel {
+  background: linear-gradient(180deg, #eaf3ff, #e8f1ff);
+  border: 1px solid #cfe0ff;
+  border-radius: 22px;
+  box-shadow: 0 18px 38px rgba(14, 34, 51, 0.08);
+  padding: clamp(16px, 3.6vw, 28px);
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: clamp(16px, 3vw, 24px);
+    .headingLeft {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      .logoWrap {
+        display: inline-grid;
+        place-items: center;
+        width: 52px;
+        height: 52px;
+        background: #fff;
+        border-radius: 50%;
+        box-shadow: var.$shadow-card;
+        > svg {
+          width: 28px !important;
+          height: 28px !important;
+        }
+      }
+      .title {
+        margin: 0;
+        font-weight: 800;
+        color: var.$brand-deep;
+        font-size: clamp(20px, 2.4vw, 28px);
+      }
+      .subtitle {
+        margin: 2px 0 0;
+        color: var.$text-muted;
+        font-size: 14px;
+      }
+    }
+
+    .ctaRight {
+      flex: 0 0 auto;
+    }
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: clamp(12px, 2vw, 18px);
+  }
+  @media (min-width: var.$bp-sm) {
+    .grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .footerCta {
+    text-align: center;
+    margin-top: clamp(16px, 4vw, 28px);
+    .sharePrompt {
+      margin: 0 0 10px;
+      color: var.$text-muted;
+    }
+  }
+}

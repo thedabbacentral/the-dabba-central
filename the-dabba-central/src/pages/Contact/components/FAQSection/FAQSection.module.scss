@@ -1,0 +1,102 @@
+@use "/src/styles/_variables.scss" as var;
+
+.faqCard {
+  background: #fff;
+  border-radius: 18px;
+  border: 1px solid var.$border;
+  padding: 16px;
+  box-shadow: var.$shadow-card;
+}
+
+.faqHead {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  .badge {
+    width: 16px;
+    height: 16px;
+    border-radius: 4px;
+    background: var.$brand-font-orange;
+    box-shadow: 0 0 0 4px #fff7ef;
+  }
+  .title {
+    font-weight: 800;
+    color: var.$brand-deep;
+  }
+}
+
+.list {
+  display: grid;
+}
+.item {
+  border-top: 1px solid #f0f4f8;
+  &:first-child {
+    border-top: 0;
+  }
+}
+.question {
+  width: 100%;
+  background: transparent;
+  border: 0;
+  text-align: left;
+  padding: 16px 6px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 700;
+  color: var.$brand-deep;
+  cursor: pointer;
+}
+.chev {
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid #9aa3af;
+  border-bottom: 2px solid #9aa3af;
+  transform: rotate(-45deg);
+  transition: transform 160ms ease;
+}
+.up {
+  transform: rotate(135deg);
+}
+.answer {
+  padding: 0 6px 16px;
+  color: #475569;
+  line-height: 1.6;
+}
+
+.socialBlock {
+  padding-top: 10px;
+  border-top: 1px solid #f0f4f8;
+  margin-top: 6px;
+}
+.caption {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #9aa3af;
+  font-weight: 800;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+.socialRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.socialBtn {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: #f3f6f9;
+  display: grid;
+  place-items: center;
+  border: 1px solid #e7ecf2;
+}
+.dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #9aa3af;
+}
+
+

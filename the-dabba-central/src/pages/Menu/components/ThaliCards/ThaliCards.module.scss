@@ -1,0 +1,103 @@
+@use "/src/styles/_variables.scss" as var;
+
+.groupTitle {
+  font-weight: 800;
+  color: var.$brand-deep;
+  font-size: clamp(18px, 1.6vw, 20px);
+  text-align: center;
+  margin: 22px 0 18px;
+}
+
+.thaliGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+
+.thaliCard {
+  border: 2px solid #eef2f5;
+  border-radius: 18px;
+  padding: 16px 16px 16px 22px;
+  cursor: pointer;
+  transition: border-color 180ms ease, box-shadow 180ms ease, background 180ms;
+  background: #fff;
+  position: relative;
+  text-align: left;
+
+  &:hover {
+    border-color: #e0e5ea;
+  }
+  &.active {
+    border-color: var.$brand-orange;
+    background: #fffdf9;
+    box-shadow: 0 8px 20px rgba(255, 106, 0, 0.15);
+  }
+
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    background: var.$brand-font-orange-gradient;
+    color: var.$white;
+    font-weight: 700;
+    border-radius: 999px;
+    padding: 6px 10px;
+    font-size: 10px;
+    top: 0px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .checkCircle {
+    position: absolute;
+    right: 16px;
+    top: 16px;
+    color: var.$brand-font-orange;
+  }
+  .cardHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .iconCircle {
+      width: 36px;
+      height: 36px;
+      border-radius: 12px;
+      background: #f1f5f9;
+      display: grid;
+      place-items: center;
+      &.iconCircleActive {
+        background: var.$brand-font-orange-gradient;
+        * {
+          color: #fff;
+        }
+      }
+    }
+  }
+  .thaliTitle {
+    font-weight: 800;
+    font-size: 1rem;
+    margin: 12px 0 6px;
+  }
+  .thaliDesc {
+    color: var.$text-muted;
+    font-size: 0.8rem;
+    margin: 0 0 6px;
+  }
+  .bullets {
+    margin: 10px 0 0;
+    padding-left: 16px;
+    li {
+      margin: 6px 0;
+      color: #435564;
+      font-size: 0.85rem;
+    }
+  }
+}
+
+@media (min-width: 920px) {
+  .thaliGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+

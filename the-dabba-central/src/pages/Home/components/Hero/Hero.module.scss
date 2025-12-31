@@ -1,0 +1,28 @@
+@use "/src/styles/_variables.scss" as var;
+
+.hero {
+  padding: clamp(18px, 4vw, 28px) 0 40px;
+  background: radial-gradient(
+    1200px 1200px at -20% 0%,
+    var.$bg-cream 0%,
+    var.$white 60%
+  );
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    align-items: center;
+    gap: 40px;
+  }
+}
+
+@media (max-width: var.$bp-md) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+.right {
+  padding: 14px 0;
+}

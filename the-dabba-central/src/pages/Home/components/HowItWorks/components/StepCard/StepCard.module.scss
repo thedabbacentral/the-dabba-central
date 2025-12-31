@@ -1,0 +1,43 @@
+@use "/src/styles/_variables.scss" as var;
+@use "sass:color";
+
+.card {
+  text-align: center;
+  padding: clamp(4px, 1vw, 8px);
+
+  .badge {
+    width: clamp(64px, 7vw, 96px);
+    height: clamp(64px, 7vw, 96px);
+    border-radius: 50%;
+    margin: 0 auto clamp(14px, 2.2vw, 20px);
+    display: grid;
+    place-items: center;
+    background: radial-gradient(
+      80% 80% at 50% 35%,
+      color.adjust(var.$brand-orange, $lightness: 42%) 0%,
+      color.adjust(var.$brand-orange, $lightness: 48%) 100%
+    );
+
+    .num {
+      font-weight: 800;
+      color: var.$brand-orange;
+      font-size: clamp(22px, 2.2vw, 28px);
+    }
+  }
+
+  .title {
+    margin: 0 0 8px;
+    font-size: clamp(18px, 2.1vw, 24px);
+    font-weight: 700;
+    color: var.$brand-deep;
+  }
+
+  .desc {
+    margin: 0;
+    color: var.$text-muted;
+    font-size: clamp(15px, 1.7vw, 18px);
+    max-width: 40ch;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

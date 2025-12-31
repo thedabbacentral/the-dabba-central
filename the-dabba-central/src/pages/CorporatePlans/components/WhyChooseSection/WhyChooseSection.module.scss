@@ -1,0 +1,39 @@
+@use "/src/styles/_variables.scss" as var;
+
+.section {
+  padding: clamp(24px, 5vw, 60px) 0 clamp(24px, 6vw, 70px);
+  background: #f7f9fc;
+
+  .header {
+    text-align: center;
+    margin: 0 0 clamp(16px, 4vw, 28px);
+    .title {
+      margin: 0 0 8px;
+      font-weight: 800;
+      font-size: clamp(24px, 3.6vw, 38px);
+      color: var.$brand-deep;
+    }
+    .subtitle {
+      margin: 0;
+      color: var.$text-muted;
+      font-size: clamp(14px, 1.8vw, 16px);
+    }
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(12px, 2.6vw, 20px);
+  }
+
+  @media (max-width: var.$bp-md) {
+    .grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  @media (max-width: var.$bp-sm) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+  }
+}

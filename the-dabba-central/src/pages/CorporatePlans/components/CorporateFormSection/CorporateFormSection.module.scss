@@ -1,0 +1,69 @@
+@use "/src/styles/_variables.scss" as var;
+
+.formSection {
+  background: #f5f3f0;
+  padding: clamp(40px, 6vw, 80px) 20px;
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 0.42fr 0.58fr;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 24px 48px rgba(14, 34, 51, 0.1);
+    .leftSection {
+      background: linear-gradient(180deg, #ff4b22, #e94315);
+      color: #fff;
+      padding: clamp(32px, 4vw, 48px) clamp(28px, 4vw, 40px);
+      display: flex;
+      flex-direction: column;
+      .heading {
+        font-size: clamp(28px, 3.4vw, 36px);
+        font-weight: 800;
+        margin: 0 0 16px;
+        line-height: 1.2;
+      }
+      .description {
+        font-size: 16px;
+        line-height: 1.6;
+        margin: 0 0 40px;
+        opacity: 0.95;
+      }
+      .contactDetails {
+        display: flex;
+        flex-direction: column;
+        gap: 28px;
+        margin-top: 8px;
+      }
+      .footerNote {
+        font-size: 14px;
+        font-style: italic;
+        color: #ffd0a8;
+        margin-top: auto;
+      }
+      .divider {
+        height: 1px;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.35);
+        margin: 24px 0;
+        opacity: 0.4;
+      }
+    }
+    .rightSection {
+      background: #fff;
+      padding: clamp(32px, 4vw, 48px) clamp(28px, 4vw, 40px);
+    }
+  }
+  @media (max-width: 1024px) {
+    .container {
+      grid-template-columns: 1fr;
+    }
+    .leftSection {
+      border-radius: 16px 16px 0 0;
+    }
+    .rightSection {
+      border-radius: 0 0 16px 16px;
+    }
+  }
+}
