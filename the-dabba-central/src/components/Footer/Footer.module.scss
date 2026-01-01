@@ -1,0 +1,194 @@
+@use "/src/styles/_variables.scss" as var;
+
+.footer {
+  background: #1f2430;
+  color: #e8eef5;
+  padding: clamp(28px, 6vw, 56px) 0 26px;
+}
+
+.container {
+  @include var.container;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+.brandCol {
+  .brandRow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+  .logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    background: var.$brand-font-orange-gradient;
+  }
+  .brandText {
+    font-weight: 900;
+    letter-spacing: 0.02em;
+    color: #eef2f7;
+    span {
+      color: var.$brand-font-orange;
+    }
+  }
+  .desc {
+    color: #b9c2cf;
+    margin: 8px 0 14px;
+    max-width: 520px;
+  }
+}
+
+.pills {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #2a2f3b;
+  border: 1px solid #3a4150;
+  padding: 10px 14px;
+  border-radius: 999px;
+  color: #e6edf5;
+  font-weight: 700;
+}
+
+.linksCol {
+  .heading {
+    color: #eef2f7;
+    font-weight: 900;
+    margin-bottom: 12px;
+  }
+
+  .linkList {
+    margin: 0 0 16px;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 8px;
+    a {
+      color: #bdc7d6;
+      text-decoration: none;
+    }
+    a:hover {
+      color: #fff;
+    }
+  }
+
+  .supportCard {
+    background: #242a36;
+    border: 1px solid #2f3645;
+    border-radius: 16px;
+    padding: 16px;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+  }
+  .supportHead {
+    display: grid;
+    grid-template-columns: 34px 1fr;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+  .whatsapp {
+    width: 34px;
+    height: 34px;
+    border-radius: 12px;
+    display: grid;
+    place-items: center;
+    background: #1f9d3a;
+    color: #fff;
+  }
+  .supportTitle {
+    font-weight: 900;
+    color: #eef2f7;
+  }
+  .supportCaption {
+    color: #93a0b2;
+    font-size: 14px;
+  }
+  .chatBtn {
+    width: 100%;
+    border: 0;
+    border-radius: 12px;
+    padding: 14px 16px;
+    background: #22c55e;
+    color: #0b1524;
+    font-weight: 800;
+    cursor: pointer;
+  }
+}
+
+.contactCol {
+  .heading {
+    color: #eef2f7;
+    font-weight: 900;
+    margin-bottom: 12px;
+  }
+  .contactRow {
+    display: grid;
+    grid-template-columns: 20px 1fr;
+    gap: 10px;
+    align-items: center;
+    color: #c4cfde;
+    margin: 8px 0;
+  }
+  .icon {
+    opacity: 0.9;
+  }
+  .ctaStack {
+    display: grid;
+    gap: 10px;
+    margin-top: 12px;
+    .button {
+      border-radius: 12px;
+    }
+  }
+}
+
+@media (min-width: 980px) {
+  .grid {
+    grid-template-columns: 1.2fr 1fr 1fr;
+  }
+}
+
+.bottomRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border-top: 1px solid #2a3040;
+  margin-top: clamp(24px, 4vw, 36px);
+  padding-top: 16px;
+}
+.copy {
+  color: #9aa3af;
+  font-size: 14px;
+}
+.socials {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.socialBtn {
+  width: 36px;
+  height: 36px;
+  border-radius: 12px;
+  background: #2a3040;
+  border: 1px solid #353c4e;
+  display: grid;
+  place-items: center;
+}
+.socialBtn span {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #9aa3af;
+}
