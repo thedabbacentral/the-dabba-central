@@ -5,9 +5,11 @@ import Button from "../Button/Button";
 import { navItems } from "./navItems";
 
 const Logo = () => (
-  <div className={styles.logo}>
-    <span className="visually-hidden">The Dabba Central</span>
-  </div>
+  <img
+    src="/Logo_Horizontal_Light.png"
+    alt="The Dabba Central"
+    className={styles.logo}
+  />
 );
 
 const Navbar = () => {
@@ -46,30 +48,18 @@ const Navbar = () => {
               Order Now
             </Button>
           </div>
-          <button
-            className={styles.hamburger}
-            aria-label="Open Menu"
-            aria-expanded={open}
-            onClick={toggle}
-          >
-            <span />
-            <span />
-            <span />
-          </button>
-        </div>
-      </div>
-
-      <div className={`${styles.overlay} ${open ? styles.open : ""}`}>
-        <div className={styles.overlayInner}>
-          <div className={styles.overlayTop}>
-            <Link
-              to="/"
-              className={styles.brand}
-              aria-label="Home"
-              onClick={close}
+          {!open ? (
+            <button
+              className={styles.hamburger}
+              aria-label="Open Menu"
+              aria-expanded={open}
+              onClick={toggle}
             >
-              <Logo />
-            </Link>
+              <span />
+              <span />
+              <span />
+            </button>
+          ) : (
             <button
               className={styles.close}
               aria-label="Close Menu"
@@ -77,7 +67,15 @@ const Navbar = () => {
             >
               ×
             </button>
-          </div>
+          )}
+        </div>
+      </div>
+
+      <div
+        className={`${styles.drawer} ${open ? styles.open : ""}`}
+        aria-hidden={!open}
+      >
+        <div className={styles.drawerInner}>
           <nav className={styles.navMobile} aria-label="Mobile">
             {navItems.map((item) => (
               <Link
@@ -90,7 +88,7 @@ const Navbar = () => {
               </Link>
             ))}
           </nav>
-          <div className={styles.overlayCta}>
+          <div className={styles.drawerCta}>
             <Button as="a" href="/our-plans" size="lg" onClick={close}>
               Order Now
             </Button>
