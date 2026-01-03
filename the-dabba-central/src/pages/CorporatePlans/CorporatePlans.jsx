@@ -24,7 +24,7 @@ const CorporatePlans = () => {
         <Testimonials />
         <BuiltAroundYourTeam />
       </PageContainer>
-      <StickyQuoteCTA />
+      {/* <StickyQuoteCTA /> */}
     </>
   );
 };

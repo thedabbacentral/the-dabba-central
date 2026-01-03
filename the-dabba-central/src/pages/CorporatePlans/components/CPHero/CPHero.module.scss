@@ -4,13 +4,16 @@
   padding: clamp(24px, 5vw, 64px) 0 clamp(28px, 6vw, 72px);
   .cpHeroGrid {
     display: grid;
-    grid-template-columns: 1.05fr 1fr;
+    grid-template-columns: 1fr 1.5fr;
     align-items: center;
     gap: clamp(18px, 4vw, 40px);
   }
   .cpHeroLeft {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     .cpHeroEyebrow {
-      display: inline-block;
+      display: flex;
       background: #ffe7d3;
       color: var.$brand-orange;
       font-weight: 800;
@@ -20,6 +23,7 @@
       border-radius: 999px;
       margin-bottom: 14px;
       text-transform: uppercase;
+      width: fit-content;
     }
     .cpHeroTitle {
       margin: 0 0 12px;
@@ -78,6 +82,13 @@
 
 @media (max-width: var.$bp-md) {
   .cpHero {
+    .cpHeroLeft {
+      text-align: center;
+      align-items: center;
+      .cpHeroActions {
+        justify-content: center;
+      }
+    }
     .cpHeroGrid {
       grid-template-columns: 1fr;
     }

@@ -31,7 +31,7 @@ const CPHero = () => {
           <div className={styles.cpHeroRight}>
             <figure className={styles.cpHeroFigure}>
               <img
-                src={heroImg}
+                src={"./Corporate.png"}
                 alt="Authentic corporate meal served fresh"
                 loading="lazy"
               />
