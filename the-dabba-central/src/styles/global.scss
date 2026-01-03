@@ -26,8 +26,9 @@ body {
   margin: 0;
   font-family: $font-family-base;
   color: $brand-deep;
-  background: radial-gradient(1200px 1200px at 90% 20%, #fff5e9 0%, #ffffff 50%)
-    fixed;
+  width: 100%;
+  overflow-x: hidden; /* Prevent accidental horizontal overflow → mobile shrink-to-fit */
+  -webkit-text-size-adjust: 100%; /* Avoid OS text zoom changing layout scale */
 }
 
 img,
