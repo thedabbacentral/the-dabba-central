@@ -49,6 +49,11 @@
     .ctaRight {
       flex: 0 0 auto;
     }
+    @media (max-width: var.$bp-sm) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+    }
   }
 
   .grid {

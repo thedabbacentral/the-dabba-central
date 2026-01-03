@@ -3,18 +3,33 @@
 .slider {
   position: relative;
   width: 100%;
+  max-width: 100%;
+  overflow-x: hidden; /* prevent any horizontal page overflow on mobile */
   .viewport {
     overflow: hidden;
     border-radius: 24px;
     width: 100%;
-    .track {
-      display: flex;
+    max-width: 100%;
+
+    /* Swiper internals live outside CSS-module scoping */
+    :global(.swiper) {
       width: 100%;
-      .slide {
-        padding: clamp(8px, 3vw, 10px);
-        box-sizing: border-box; /* prevent percentage width + padding overflow */
-        min-width: 0; /* allow inner card to shrink on tiny screens */
-      }
+      max-width: 100%;
+    }
+    :global(.swiper-wrapper) {
+      align-items: stretch;
+    }
+    :global(.swiper-slide) {
+      height: auto;
+      min-width: 0;
+      box-sizing: border-box;
+    }
+
+    .slide {
+      padding: clamp(8px, 3vw, 10px);
+      box-sizing: border-box; /* prevent width+padding overflow */
+      min-width: 0; /* allow inner card to shrink on tiny screens */
+      height: 100%;
     }
   }
   .controls {
@@ -40,12 +55,21 @@
       display: flex;
       gap: 8px;
       justify-content: center;
+      max-width: 100%;
+      overflow-x: auto; /* if more dots later, don't break layout */
+      overflow-y: hidden;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      &::-webkit-scrollbar {
+        display: none;
+      }
       .dot {
         width: 8px;
         height: 8px;
         border-radius: 999px;
         background: #e1e5ea;
         border: 0;
+        flex: 0 0 auto;
         &.active {
           background: var.$brand-orange;
           width: 20px;

@@ -1,104 +1,67 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { useMemo, useRef, useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { A11y, Autoplay, Navigation } from "swiper/modules";
 import styles from "./ReviewSlider.module.scss";
-
-// Always one slide visible per requirements
-const getSlidesPerView = () => 2;
+import "swiper/css";
 
 const ReviewSlider = ({ items = [], renderItem, autoplayMs = 5000 }) => {
-  const [slidesPerView, setSlidesPerView] = useState(getSlidesPerView());
-  const clones = useMemo(() => slidesPerView, [slidesPerView]);
-  const extended = useMemo(() => {
-    const head = items.slice(0, clones);
-    const tail = items.slice(-clones);
-    return [...tail, ...items, ...head];
-  }, [items, clones]);
+  const swiperRef = useRef(null);
+  const [active, setActive] = useState(0);
 
-  const [index, setIndex] = useState(clones);
-  const [transitioning, setTransitioning] = useState(false);
-  const timerRef = useRef(null);
-  const wrapRef = useRef(null);
+  const settings = useMemo(
+    () => ({
+      modules: [Navigation, Autoplay, A11y],
+      loop: items.length > 2,
+      speed: 420,
+      // Default to 1 (mobile-safe). Increase via breakpoints.
+      slidesPerView: 1,
+      spaceBetween: 0,
+      breakpoints: {
+        720: { slidesPerView: 2 },
+      },
+      // Ensure Swiper recalculates when viewport/container changes (mobile + device toolbar)
+      observer: true,
+      observeParents: true,
+      resizeObserver: true,
+      updateOnWindowResize: true,
+      // Use viewport width for breakpoints (most intuitive for responsiveness)
+      breakpointsBase: "window",
+      autoplay: autoplayMs
+        ? {
+            delay: autoplayMs,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
+          }
+        : false,
+      onSwiper: (swiper) => {
+        swiperRef.current = swiper;
+        // ensure active dot matches initial slide (especially when loop enabled)
+        setActive(swiper.realIndex ?? 0);
+      },
+      onSlideChange: (swiper) => setActive(swiper.realIndex ?? 0),
+      a11y: true,
+    }),
+    [autoplayMs, items.length]
+  );
 
-  const go = (dir) => {
-    setIndex((i) => i + dir);
-    setTransitioning(true);
-  };
-  const next = () => go(1);
-  const prev = () => go(-1);
-
-  // Keep hook in case viewport changes but always resolves to 1
-  useEffect(() => {
-    const onResize = () => setSlidesPerView(getSlidesPerView());
-    window.addEventListener("resize", onResize);
-    return () => window.removeEventListener("resize", onResize);
-  }, []);
-
-  useEffect(() => {
-    // reset index when slidesPerView changes
-    setIndex(clones);
-  }, [clones]);
-
-  useEffect(() => {
-    if (!autoplayMs) return;
-    const start = () => {
-      clearInterval(timerRef.current);
-      timerRef.current = setInterval(next, autoplayMs);
-    };
-    const stop = () => clearInterval(timerRef.current);
-    start();
-    const el = wrapRef.current;
-    if (el) {
-      el.addEventListener("mouseenter", stop);
-      el.addEventListener("mouseleave", start);
-    }
-    return () => {
-      stop();
-      if (el) {
-        el.removeEventListener("mouseenter", stop);
-        el.removeEventListener("mouseleave", start);
-      }
-    };
-  }, [autoplayMs, clones, items.length]);
-
-  const onTransitionEnd = () => {
-    setTransitioning(false);
-    if (index >= items.length + clones) {
-      setIndex(clones);
-    } else if (index < clones) {
-      setIndex(items.length + clones - 1);
-    }
-  };
-
-  const activeDot =
-    (((index - clones) % items.length) + items.length) % items.length;
+  if (!items.length) return null;
 
   return (
-    <div className={styles.slider} ref={wrapRef}>
+    <div className={styles.slider}>
       <div className={styles.viewport}>
-        <div
-          className={styles.track}
-          style={{
-            width: `${(extended.length / slidesPerView) * 100}%`,
-            transform: `translateX(-${(index * 100) / extended.length}%)`,
-            transition: transitioning ? "transform 420ms ease" : "none",
-          }}
-          onTransitionEnd={onTransitionEnd}
-        >
-          {extended.map((item, idx) => (
-            <div
-              className={styles.slide}
-              key={`${item.id}-${idx}`}
-              style={{ width: `${100 / extended.length}%` }}
-            >
+        <Swiper className={styles.swiper} {...settings}>
+          {items.map((item) => (
+            <SwiperSlide key={item.id} className={styles.slide}>
               {renderItem(item)}
-            </div>
+            </SwiperSlide>
           ))}
-        </div>
+        </Swiper>
       </div>
       <div className={styles.controls}>
         <button
           className={`${styles.nav} ${styles.prev}`}
           aria-label="Previous review"
-          onClick={prev}
+          onClick={() => swiperRef.current?.slidePrev()}
         >
           ‹
         </button>
@@ -111,21 +74,16 @@ const ReviewSlider = ({ items = [], renderItem, autoplayMs = 5000 }) => {
             <button
               key={i}
               role="tab"
-              aria-selected={activeDot === i}
-              className={`${styles.dot} ${
-                activeDot === i ? styles.active : ""
-              }`}
-              onClick={() => {
-                setIndex(i + clones);
-                setTransitioning(true);
-              }}
+              aria-selected={active === i}
+              className={`${styles.dot} ${active === i ? styles.active : ""}`}
+              onClick={() => swiperRef.current?.slideToLoop(i)}
             />
           ))}
         </div>
         <button
           className={`${styles.nav} ${styles.next}`}
           aria-label="Next review"
-          onClick={next}
+          onClick={() => swiperRef.current?.slideNext()}
         >
           ›
         </button>
