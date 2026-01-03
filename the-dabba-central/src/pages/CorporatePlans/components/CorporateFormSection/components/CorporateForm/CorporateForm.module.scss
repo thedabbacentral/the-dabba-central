@@ -50,9 +50,10 @@
     }
   }
   @media (max-width: 768px) {
-    .formRow,
-    .threeColumns {
-      grid-template-columns: 1fr;
+    .formRow {
+      &.threeColumns {
+        grid-template-columns: 1fr;
+      }
     }
   }
 }

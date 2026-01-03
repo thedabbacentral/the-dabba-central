@@ -9,7 +9,15 @@ const Hero = () => {
       <div className="container">
         <div className={styles.grid}>
           <LeftHeroSection />
-          <div className={styles.right}>{/* <PictureSection /> */}</div>
+          <div className={styles.right}>
+            <figure className={styles.cpHeroFigure}>
+              <img
+                src={"./Corporate.png"}
+                alt="Authentic corporate meal served fresh"
+                loading="lazy"
+              />
+            </figure>
+          </div>
         </div>
       </div>
     </section>

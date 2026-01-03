@@ -38,8 +38,6 @@
     font-size: clamp(12px, 1.6vw, 16px);
     color: var.$text-muted;
     margin: 0;
-    max-width: 940px;
+    max-width: 60ch;
   }
 }
-
-

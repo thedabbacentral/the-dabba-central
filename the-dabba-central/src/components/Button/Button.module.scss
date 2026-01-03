@@ -31,10 +31,11 @@
 }
 
 .primary {
-  @include gradient-orange;
+  background: $brand-font-orange;
   color: $white;
   &:hover {
     background: #d93d1b;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
   }
 }
 

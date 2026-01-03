@@ -30,7 +30,17 @@ body {
   overflow-x: hidden; /* Prevent accidental horizontal overflow → mobile shrink-to-fit */
   -webkit-text-size-adjust: 100%; /* Avoid OS text zoom changing layout scale */
 }
-
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+p {
+  margin: 0;
+}
 img,
 svg {
   display: block;

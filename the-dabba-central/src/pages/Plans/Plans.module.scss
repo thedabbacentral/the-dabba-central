@@ -14,7 +14,7 @@
   align-items: center;
   text-align: center;
   margin-bottom: 2rem;
-  gap: 16px;
+  gap: 14px;
   .title {
     font-size: clamp(36px, 3vw, 56px);
     font-weight: 800;
@@ -43,19 +43,20 @@
     text-align: center;
     color: var.$text-muted;
     margin: 0;
+    max-width: 60ch;
   }
 
   .setupPill {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
     background: #fff4ea;
     border: 1px solid #ffe1c9;
     color: var.$brand-font-orange;
     border-radius: 999px;
-    padding: clamp(4px, 1vw, 6px) clamp(8px, 1vw, 10px);
-    font-weight: 600;
-    font-size: clamp(10px, 0.8vw, 14px);
+    padding: 6px 12px;
+    font-weight: 700;
+    font-size: 12px;
     margin: 0;
   }
 }

@@ -19,12 +19,12 @@ const CorporatePlanCard = ({ plan }) => {
         ))}
       </ul>
 
-      <div className={styles.footer}>
+      {/* <div className={styles.footer}>
         <span className={styles.label}>Options</span>
         <span className={styles.tag} aria-label="plan tag">
           {plan.tag}
         </span>
-      </div>
+      </div> */}
     </article>
   );
 };

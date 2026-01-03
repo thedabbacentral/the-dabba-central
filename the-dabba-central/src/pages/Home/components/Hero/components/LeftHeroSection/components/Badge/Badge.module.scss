@@ -1,14 +1,19 @@
 @use "/src/styles/_variables.scss" as var;
 
 .badge {
-  display: inline-flex;
+  display: flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
-  padding: 10px 14px;
+  padding: 6px 12px;
   border-radius: var.$radius-pill;
-  background: #ffe9d5;
-  color: #b77039;
-  font-weight: 600;
-  font-size: 14px;
+  background: #fff4ea;
+  color: var.$brand-font-orange;
+  font-weight: 700;
+  font-size: 12px;
   margin-bottom: 16px;
+  width: fit-content;
+  svg {
+    margin-top: 2px;
+  }
 }

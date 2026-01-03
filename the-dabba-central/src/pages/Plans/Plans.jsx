@@ -47,6 +47,10 @@ const Plans = () => {
       <section className={styles.section}>
         <div className={styles.container}>
           <div className={styles.hero}>
+            <div className={styles.setupPill}>
+              <ClockIcon size={18} color="#ff6a00" />
+              <span>Set up your subscription in less than 2 minutes</span>
+            </div>
             <h1 className={styles.title}>
               Choose a Plan That{" "}
               <span className={styles.accent}>Fits Your Appetite</span>
@@ -54,10 +58,6 @@ const Plans = () => {
             <p className={styles.subtitle}>
               Flexible thali options • Lunch & Dinner • Weekly or Monthly
             </p>
-            <div className={styles.setupPill}>
-              <ClockIcon size={18} color="#ff6a00" />
-              <span>Set up your subscription in less than 2 minutes</span>
-            </div>
           </div>
 
           <div className={styles.grid}>

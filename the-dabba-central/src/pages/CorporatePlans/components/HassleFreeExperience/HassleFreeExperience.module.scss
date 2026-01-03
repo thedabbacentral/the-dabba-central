@@ -20,11 +20,11 @@
 
   .header {
     text-align: center;
-    margin: 0 0 clamp(18px, 4vw, 28px);
+    margin: 0 0 clamp(18px, 6vw, 48px);
     .title {
       margin: 0 0 8px;
       font-weight: 800;
-      font-size: clamp(24px, 3.8vw, 40px);
+      font-size: clamp(24px, 3.8vw, 30px);
       color: #fff;
     }
     .subtitle {
@@ -39,16 +39,16 @@
     z-index: 1; /* above utensils */
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: clamp(16px, 3vw, 28px);
+    gap: clamp(16px, 4vw, 40px);
     .item {
       position: relative;
       padding-left: 0;
       .num {
         position: absolute;
-        left: -6px;
-        top: -32px;
+        left: -10px;
+        top: -70%;
         font-weight: 800;
-        font-size: clamp(56px, 7vw, 100px);
+        font-size: clamp(38px, 5vw, 76px);
         color: rgba(255, 255, 255, 0.08);
         line-height: 0.8;
         pointer-events: none;

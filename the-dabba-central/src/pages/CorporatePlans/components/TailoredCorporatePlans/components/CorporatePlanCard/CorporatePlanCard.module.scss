@@ -5,7 +5,7 @@
   border: 1px solid var.$border;
   border-radius: var.$radius-xl;
   box-shadow: var.$shadow-card;
-  padding: clamp(18px, 3vw, 24px);
+  padding: 20px;
   display: grid;
   gap: 10px;
   transition: transform 160ms ease, border-color 160ms ease,
@@ -21,7 +21,7 @@
   .name {
     margin: 0;
     font-weight: 800;
-    font-size: clamp(18px, 2.1vw, 22px);
+    font-size: clamp(16px, 2.1vw, 20px);
     color: var.$brand-deep;
   }
   .desc {
