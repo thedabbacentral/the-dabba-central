@@ -8,7 +8,7 @@ const PageContainer = ({ children, className = "" }) => {
     <div className={`${styles.page} ${className}`}>
       <Navbar />
       <main className={styles.main}>{children}</main>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };
