@@ -49,12 +49,39 @@
     .ctaRight {
       flex: 0 0 auto;
     }
-    @media (max-width: var.$bp-sm) {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 16px;
+
+    .viewAllBtn {
+      padding-left: 26px;
+      padding-right: 26px;
     }
+
+    .viewAllIcon {
+      display: inline-flex;
+      margin-left: 2px;
+
+      > svg {
+        width: 18px !important;
+        height: 18px !important;
+      }
+    }
+    
+    
   }
+  @media (max-width: var.$bp-xs) {
+      .header{
+      flex-direction: column;
+      align-items: flex-center;
+
+      gap: 16px;
+      .ctaRight{
+        width: 100%;
+        a{
+        width: 100%;
+      }
+      }
+      
+    }
+    }
 
   .grid {
     display: grid;
@@ -73,6 +100,20 @@
     .sharePrompt {
       margin: 0 0 10px;
       color: var.$text-muted;
+    }
+
+    .leaveReviewBtn {
+      padding-left: 26px;
+      padding-right: 26px;
+    }
+
+    .leaveReviewIcon {
+      display: inline-flex;
+
+      > svg {
+        width: 20px !important;
+        height: 20px !important;
+      }
     }
   }
 }

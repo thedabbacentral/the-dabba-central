@@ -3,10 +3,8 @@ import styles from "./PricingCard.module.scss";
 import { Button } from "@components";
 
 const PricingCard = ({ plan, planType, isSelected, onClick }) => {
-  const price = planType === "weekly" ? plan.weeklyPrice : plan.monthlyPrice;
-  const meals =
-    planType === "weekly" ? plan.mealsCountWeekly : plan.mealsCountMonthly;
-  const perLabel = planType === "weekly" ? "/week" : "/month";
+  const price = planType === "veg" ? plan.vegPrice : plan.nonVegPrice;
+ 
 
   return (
     <article
@@ -42,18 +40,17 @@ const PricingCard = ({ plan, planType, isSelected, onClick }) => {
           <div className={styles.price} aria-live="polite">
             {price}
           </div>
-          <div className={styles.per}>{perLabel}</div>
+          <div className={styles.per}>/per meal</div>
         </div>
-        <div className={styles.meals}>{meals}</div>
       </header>
 
       <div className={styles.ctaRow}>
         <Button
           size="md"
-          variant={isSelected ? "primary" : "outline"}
+          variant={"primary"}
           className={styles.fullWidth}
         >
-          {isSelected ? "Selected Plan" : "Select Plan"}
+          View Plan Price
         </Button>
       </div>
 

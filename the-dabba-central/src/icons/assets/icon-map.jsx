@@ -4,6 +4,7 @@ import ChefHat from './chef_hat.svg?react';
 import Clipboard from './clipboard.svg?react';
 import ClockIcon from './clock_icon.svg?react';
 import Droplet from './droplet.svg?react';
+import ExternalLink from './external_link.svg?react';
 import ForkAndKnife from './fork_and_knife.svg?react';
 import GoogleLogo from './google_logo.svg?react';
 import Info from './info.svg?react';
@@ -17,6 +18,7 @@ import Refresh from './refresh.svg?react';
 import ShieldCheck from './shield_check.svg?react';
 import Spark from './spark.svg?react';
 import Star from './star.svg?react';
+import TrendUp from './trend_up.svg?react';
 import Users from './users.svg?react';
 import UtensilsIcon from './utensils_icon.svg?react';
 import Wind from './wind.svg?react';
@@ -28,6 +30,7 @@ export default {
 "clipboard": Clipboard, 
 "clock_icon": ClockIcon, 
 "droplet": Droplet, 
+"external_link": ExternalLink, 
 "fork_and_knife": ForkAndKnife, 
 "google_logo": GoogleLogo, 
 "info": Info, 
@@ -41,6 +44,7 @@ export default {
 "shield_check": ShieldCheck, 
 "spark": Spark, 
 "star": Star, 
+"trend_up": TrendUp, 
 "users": Users, 
 "utensils_icon": UtensilsIcon, 
 "wind": Wind, 

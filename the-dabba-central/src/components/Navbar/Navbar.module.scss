@@ -45,11 +45,11 @@
   cursor: pointer;
 
   &.active {
-    color: var.$brand-orange;
+    color: darken(var.$brand-orange, 8%);
   }
 
   &:hover {
-    color: darken(var.$brand-orange, 8%);
+    color: var.$brand-orange;
     scale: 1.02;
     transition: transform 180ms ease, scale 180ms ease;
   }

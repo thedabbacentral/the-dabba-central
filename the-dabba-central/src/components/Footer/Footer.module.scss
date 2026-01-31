@@ -22,6 +22,10 @@
     align-items: center;
     gap: 12px;
     margin-bottom: 12px;
+    img {
+      width: 220px;
+      object-fit: contain;
+    }
   }
   .logo {
     width: 40px;

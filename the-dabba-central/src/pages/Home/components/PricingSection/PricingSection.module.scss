@@ -19,7 +19,7 @@
       letter-spacing: -0.5px;
       color: var.$brand-deep;
       .accent {
-        color: var.$brand-orange;
+        color: var.$brand-font-orange;
       }
     }
 
@@ -47,7 +47,7 @@
 
   .cards {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: clamp(18px, 3vw, 28px);
     margin: 0 0 clamp(20px, 5vw, 32px);
   }
@@ -128,6 +128,15 @@
   }
 
   .notice {
+    .noticeIconRow {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .noticeText {
+      margin: 0;
+      font-size: 14px;
+    }
     margin-top: clamp(16px, 4vw, 26px);
     background: #fff6ec;
     border: 1px solid #ffd9b3;
@@ -162,11 +171,18 @@
       flex-direction: column;
       align-items: flex-start;
     }
+
   }
 
   @media (max-width: var.$bp-sm) {
     .featuresGrid {
       grid-template-columns: 1fr;
+    }
+    .notice {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
     }
   }
 }

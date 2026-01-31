@@ -7,11 +7,11 @@ import PricingCard from "./components/PricingCard/PricingCard";
 import { Button } from "@components";
 
 const PricingSection = () => {
-  const [planType, setPlanType] = useState("monthly"); // default to Monthly as per screenshot
+  const [planType, setPlanType] = useState("veg"); // default to Monthly as per screenshot
   const [selectedPlan, setSelectedPlan] = useState(2);
 
   const displayedPlans = useMemo(() => {
-    return PRICING_PLANS.slice(0, 2);
+    return PRICING_PLANS.slice(0, 3);
   }, []);
 
   return (
@@ -45,8 +45,8 @@ const PricingSection = () => {
         <div className={styles.toggleRow}>
           <Toggle
             options={[
-              { label: "Weekly Plans", value: "weekly" },
-              { label: "Monthly Plans", value: "monthly" },
+              { label: "Veg Plans", value: "veg" },
+              { label: "Nonveg Plans", value: "nonveg" },
             ]}
             value={planType}
             onChange={setPlanType}
@@ -66,7 +66,7 @@ const PricingSection = () => {
           ))}
         </div>
 
-        {/* Division 5: Individual Meal Card */}
+        {/* Division 5: Individual Meal Card
         <div className={styles.individualCard}>
           <h3 className={styles.individualTitle}>Order Individual Meals</h3>
           <div className={styles.priceRow} aria-label="Meal prices">
@@ -98,7 +98,7 @@ const PricingSection = () => {
               <Button size="md">Order Now</Button>
             </div>
           </div>
-        </div>
+        </div> */}
 
         {/* Division 6: Disclaimer */}
         <aside
@@ -106,11 +106,16 @@ const PricingSection = () => {
           role="note"
           aria-label="Important notice"
         >
+          <div className={styles.noticeIconRow}>
           <span className={styles.noticeIcon} aria-hidden>
             !
           </span>
-          <strong>Important:</strong>&nbsp;Delivery charges are excluded and
+          <strong>Important:</strong>
+          </div>
+          <div className={styles.noticeText}>
+          Delivery charges are excluded and
           will be calculated separately based on your location.
+          </div>
         </aside>
       </div>
     </section>

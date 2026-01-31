@@ -10,10 +10,7 @@ const Footer = () => {
         <div className={styles.grid}>
           <div className={styles.brandCol}>
             <div className={styles.brandRow}>
-              <div className={styles.logo} aria-hidden />
-              <div className={styles.brandText}>
-                THE DABBA <span>CENTRAL</span>
-              </div>
+              <img src="/Logo_Horizontal_Dark_Background.png" alt="The Dabba Central" />
             </div>
             <p className={styles.desc}>
               North Indian homemade meals, freshly prepared and delivered daily
