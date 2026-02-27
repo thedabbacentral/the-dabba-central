@@ -43,13 +43,20 @@ const LeftHeroSection = () => {
       </div>
 
       <div className={styles.ctaRow}>
-        <Button as="a" href="#order" size="lg" className={styles.shineCta}>
+        <Button
+          as="a"
+          href="https://wa.me/917404388224?text=Hi%21%20When%20can%20I%20get%20my%20First%20Free%20Trial%20Meal%3F"
+          target="_blank"
+          rel="noopener noreferrer"
+          size="lg"
+          className={styles.shineCta}
+        >
           <span className={styles.spark}>
             <Spark />
           </span>
           Claim Your Free Meal
         </Button>
-        <Button as="a" href="#menu" variant="outline" size="lg">
+        <Button as="a" href="/menu" variant="outline" size="lg">
           View Menu
         </Button>
       </div>
@@ -67,7 +74,7 @@ const LeftHeroSection = () => {
             <span className={styles.rating}>
               4.9/5
               <span className={styles.ratingStar} aria-hidden>
-                <Star />
+                ⭐
               </span>
             </span>
           </div>

@@ -4,7 +4,6 @@ import { Button } from "@components";
 
 const PricingCard = ({ plan, planType, isSelected, onClick }) => {
   const price = planType === "veg" ? plan.vegPrice : plan.nonVegPrice;
- 
 
   return (
     <article
@@ -49,6 +48,9 @@ const PricingCard = ({ plan, planType, isSelected, onClick }) => {
           size="md"
           variant={"primary"}
           className={styles.fullWidth}
+          onClick={() => {
+            window.location.href = "/our-plans";
+          }}
         >
           View Plan Price
         </Button>

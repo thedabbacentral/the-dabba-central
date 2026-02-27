@@ -9,10 +9,12 @@
     display: grid;
     gap: 20px;
     grid-template-columns: 1fr 1fr;
+
     &.threeColumns {
       grid-template-columns: 1fr 1fr 1fr;
     }
   }
+
   .submitButton {
     width: 100%;
     background: #ff5733 !important;
@@ -28,17 +30,20 @@
     gap: 8px;
     transition: all 0.3s ease;
     margin-top: 8px;
+
     &:hover {
       filter: brightness(0.98);
       transform: translateY(-2px);
       box-shadow: 0 8px 16px rgba(255, 87, 51, 0.3);
     }
+
     &:disabled {
       opacity: 0.6;
       cursor: not-allowed;
       transform: none;
       box-shadow: none;
     }
+
     .arrowIcon {
       font-size: 18px;
     }
@@ -49,8 +54,11 @@
       grid-template-columns: 1fr 1fr;
     }
   }
+
   @media (max-width: 768px) {
     .formRow {
+      grid-template-columns: 1fr;
+
       &.threeColumns {
         grid-template-columns: 1fr;
       }

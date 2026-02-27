@@ -12,6 +12,7 @@ import {
   INCLUDED_POINTS,
   TRANSPARENCY_NOTES,
   calculatePrice,
+  getDiscountRate,
 } from "./constants";
 
 const Plans = () => {
@@ -22,7 +23,7 @@ const Plans = () => {
   const [preference, setPreference] = useState("veg");
   const [isMobileDetailsOpen, setIsMobileDetailsOpen] = useState(false);
 
-  const totalPrice = useMemo(
+  const originalPrice = useMemo(
     () =>
       calculatePrice({
         orderTypeId: orderType,
@@ -31,8 +32,20 @@ const Plans = () => {
         durationId: duration,
         preferenceId: preference,
       }),
-    [orderType, thali, frequency, duration, preference]
+    [orderType, thali, frequency, duration, preference],
   );
+
+  const discountRate = useMemo(
+    () => getDiscountRate({ orderTypeId: orderType, durationId: duration }),
+    [orderType, duration],
+  );
+
+  const totalPrice = useMemo(
+    () => Math.round(originalPrice * (1 - discountRate)),
+    [originalPrice, discountRate],
+  );
+
+  const showDiscount = discountRate > 0 && totalPrice < originalPrice;
 
   const thaliLabel = THALI_TYPES.find((t) => t.id === thali)?.name;
   const mealsPerDay =
@@ -40,7 +53,15 @@ const Plans = () => {
   const durationLabel = PLAN_DURATIONS.find((d) => d.id === duration)?.label;
   const durationDays = PLAN_DURATIONS.find((d) => d.id === duration)?.days;
   const prefLabel = PREFERENCES.find((p) => p.id === preference)?.label;
-  const prefLabelMobile = preference === "veg" ? "Veg" : "Non-Veg";
+  const prefLabelMobile =
+    preference === "veg" ? "Veg" : preference === "nonveg" ? "Non-Veg" : "Mix";
+
+  const prefToneClass =
+    preference === "veg"
+      ? styles.prefGreen
+      : preference === "nonveg"
+        ? styles.prefRed
+        : styles.prefMix;
 
   return (
     <PageContainer>
@@ -232,7 +253,9 @@ const Plans = () => {
                               preference === p.id
                                 ? p.id === "veg"
                                   ? styles.prefGreen
-                                  : styles.prefRed
+                                  : p.id === "nonveg"
+                                    ? styles.prefRed
+                                    : styles.prefMix
                                 : ""
                             }`}
                             onClick={() => setPreference(p.id)}
@@ -263,7 +286,9 @@ const Plans = () => {
                           preference === p.id
                             ? p.id === "veg"
                               ? styles.prefGreen
-                              : styles.prefRed
+                              : p.id === "nonveg"
+                                ? styles.prefRed
+                                : styles.prefMix
                             : ""
                         }`}
                         onClick={() => setPreference(p.id)}
@@ -303,11 +328,17 @@ const Plans = () => {
                   </span>{" "}
                   Transparency Notes
                 </div>
-                <ul className={styles.notesList}>
+
+                <div className={styles.notesList}>
                   {TRANSPARENCY_NOTES.map((note, i) => (
-                    <li key={i}>{note}</li>
+                    <div key={i} className={styles.noteRow}>
+                      <div className={styles.tick}>
+                        <CheckCircle size={16} color="red" />
+                      </div>
+                      <div>{note}</div>
+                    </div>
                   ))}
-                </ul>
+                </div>
               </div>
             </div>
 
@@ -344,19 +375,20 @@ const Plans = () => {
                   </div>
                   <div className={styles.row}>
                     <span>Preference</span>
-                    <strong
-                      className={`${
-                        preference === "veg" ? styles.prefGreen : styles.prefRed
-                      }`}
-                    >
-                      {prefLabel}
-                    </strong>
+                    <strong className={prefToneClass}>{prefLabel}</strong>
                   </div>
                   <div className={`${styles.row} ${styles.priceLine}`}>
                     <div className={styles.priceRow}>
                       <div className={styles.priceLabel}>Total Price</div>
-                      <div className={styles.price}>
-                        ₹{totalPrice.toLocaleString("en-IN")}
+                      <div className={styles.priceStack}>
+                        {showDiscount ? (
+                          <div className={styles.originalPrice}>
+                            ₹{originalPrice.toLocaleString("en-IN")}
+                          </div>
+                        ) : null}
+                        <div className={styles.price}>
+                          ₹{totalPrice.toLocaleString("en-IN")}
+                        </div>
                       </div>
                     </div>
 
@@ -388,6 +420,11 @@ const Plans = () => {
         <div className={styles.mobileSummaryHeader}>
           <div className={styles.mobileSummaryLeft}>
             <div className={styles.mobileTotalLabel}>TOTAL PLAN COST</div>
+            {showDiscount ? (
+              <div className={styles.mobileOriginalPrice}>
+                ₹{originalPrice.toLocaleString("en-IN")}
+              </div>
+            ) : null}
             <div className={styles.mobileTotalPrice}>
               ₹{totalPrice.toLocaleString("en-IN")}
             </div>
@@ -422,13 +459,7 @@ const Plans = () => {
             </div>
             <div className={styles.mobileDetailRow}>
               <span>Preference</span>
-              <strong
-                className={
-                  preference === "veg" ? styles.prefGreen : styles.prefRed
-                }
-              >
-                {prefLabelMobile}
-              </strong>
+              <strong className={prefToneClass}>{prefLabelMobile}</strong>
             </div>
           </div>
         ) : null}

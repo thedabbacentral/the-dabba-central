@@ -90,6 +90,17 @@ export const PREFERENCES = [
     priceDeltaPerMeal: 20,
     icon: <Meat size={20} />,
   },
+  {
+    id: "mix",
+    label: "MIX",
+    priceDeltaPerMeal: 10,
+    icon: (
+      <span style={{ display: "inline-flex", alignItems: "center", gap: 6 }}>
+        <LeafIcon size={18} />
+        <Meat size={18} />
+      </span>
+    ),
+  },
 ];
 
 export const INCLUDED_POINTS = [
@@ -129,4 +140,17 @@ export function calculatePrice({
 
   if (!freq || !duration) return 0;
   return perMeal * freq.mealsPerDay * duration.days;
+}
+
+export function getDiscountRate({ orderTypeId, durationId }) {
+  if (orderTypeId !== "subscription") return 0;
+  if (durationId === "monthly") return 0.2;
+  if (durationId === "weekly") return 0.1;
+  return 0;
+}
+
+export function calculateDiscountedPrice(args) {
+  const original = calculatePrice(args);
+  const rate = getDiscountRate(args);
+  return Math.round(original * (1 - rate));
 }

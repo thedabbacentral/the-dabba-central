@@ -21,22 +21,20 @@ const MenuBanner = () => {
         >
           Subscribe Now
         </Button>
-        <Button
+        {/* <Button
           className={styles.btn}
           size="lg"
           variant="outline"
           onClick={() => (window.location.href = "/our-plans")}
         >
           View Plans & Pricing
-        </Button>
+        </Button> */}
       </div>
-      <div className={styles.footNote}>
+      {/* <div className={styles.footNote}>
         No commitment required • Cancel anytime • Free delivery
-      </div>
+      </div> */}
     </div>
   );
 };
 
 export default MenuBanner;
-
-

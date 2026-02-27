@@ -10,13 +10,13 @@ const Hero = () => {
         <div className={styles.grid}>
           <LeftHeroSection />
           <div className={styles.right}>
-            <figure className={styles.cpHeroFigure}>
+            <div className={styles.heroFigure}>
               <img
-                src={"./Corporate.png"}
+                src={"./Hero_New.png"}
                 alt="Authentic corporate meal served fresh"
                 loading="lazy"
               />
-            </figure>
+            </div>
           </div>
         </div>
       </div>

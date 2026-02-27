@@ -15,9 +15,7 @@
     z-index: 1;
     top: var(--pad);
     bottom: var(--pad);
-    left: calc(
-      var(--pad) + var(--index) * ((100% - (var(--pad) * 2)) / var(--count))
-    );
+    left: calc(var(--pad) + var(--index) * ((100% - (var(--pad) * 2)) / var(--count)));
     width: calc((100% - (var(--pad) * 2)) / var(--count));
     border-radius: 999px;
     @include var.gradient-orange;
@@ -26,6 +24,10 @@
   }
 
   .option {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
     position: relative;
     z-index: 2;
     padding: 12px 20px;
@@ -39,6 +41,7 @@
     &:hover {
       transform: translateY(-1px);
     }
+
     &.active {
       color: var.$white;
     }

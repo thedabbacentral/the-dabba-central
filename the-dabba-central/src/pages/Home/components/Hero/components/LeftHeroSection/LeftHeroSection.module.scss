@@ -14,24 +14,27 @@
       color: var.$brand-font-orange;
     }
   }
+
   .subtitle {
     font-size: clamp(15px, 2vw, 18px);
     color: var.$text-muted;
     margin: 0 0 24px;
     max-width: 56ch;
   }
+
   .features {
     display: grid;
     gap: 16px;
     margin: 0 0 24px;
   }
+
   .ctaRow {
     display: flex;
     gap: 16px;
     align-items: center;
     margin: 8px 0 24px;
     flex-wrap: wrap;
-   
+
     .spark {
       display: inline-flex;
     }
@@ -49,13 +52,11 @@
       left: -55%;
       width: 45%;
       height: 220%;
-      background: linear-gradient(
-        120deg,
-        transparent 0%,
-        rgba(255, 255, 255, 0.78) 45%,
-        rgba(255, 255, 255, 0.3) 60%,
-        transparent 100%
-      );
+      background: linear-gradient(120deg,
+          transparent 0%,
+          rgba(255, 255, 255, 0.78) 45%,
+          rgba(255, 255, 255, 0.3) 60%,
+          transparent 100%);
       transform: translateX(-140%) skewX(-20deg);
       opacity: 0;
       pointer-events: none;
@@ -86,16 +87,14 @@
       display: inline-flex;
       color: #ffb020;
       transform: translateY(1px);
-
-      > svg {
-        width: clamp(18px, 2.2vw, 24px) !important;
-        height: clamp(18px, 2.2vw, 24px) !important;
-      }
+      font-size: clamp(14px, 2vw, 20px);
     }
+
     .statLabel {
       color: var.$text-muted;
       font-size: 14px;
     }
+
     .divider {
       width: 1px;
       height: 42px;
@@ -105,14 +104,17 @@
 }
 
 @keyframes heroCtaShine {
+
   0%,
   62% {
     transform: translateX(-140%) skewX(-20deg);
     opacity: 0;
   }
+
   70% {
     opacity: 1;
   }
+
   100% {
     transform: translateX(380%) skewX(-20deg);
     opacity: 0;
@@ -125,11 +127,12 @@
     opacity: 0;
   }
 }
+
 @media (max-width: var.$bp-sm) {
   .ctaRow {
-    a{
+    a {
       width: 100%;
     }
-   
+
   }
 }

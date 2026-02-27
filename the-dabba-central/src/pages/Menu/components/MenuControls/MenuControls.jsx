@@ -30,7 +30,7 @@ const MenuControls = ({
           onChange={onMeal}
         />
       </div>
-      <div className={styles.weekRow} aria-label="Week selector">
+      {/* <div className={styles.weekRow} aria-label="Week selector">
         <button
           className={styles.navBtn}
           type="button"
@@ -50,7 +50,7 @@ const MenuControls = ({
         >
           ›
         </button>
-      </div>
+      </div> */}
 
       <div className={styles.daysRow}>
         {DAYS.map((d, i) => (

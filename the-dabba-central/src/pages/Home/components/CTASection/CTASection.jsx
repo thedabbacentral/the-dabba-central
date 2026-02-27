@@ -3,12 +3,6 @@ import styles from "./CTASection.module.scss";
 import { Button } from "@components";
 
 const CTASection = () => {
-  const handleSubscribe = () => {
-    // Placeholder - wire to checkout/subscribe route when available
-    // eslint-disable-next-line no-console
-    console.log("Subscribe clicked");
-  };
-
   return (
     <section className={styles.section} aria-labelledby="cta-heading">
       <div className="container">
@@ -24,7 +18,9 @@ const CTASection = () => {
             size="md"
             variant="outline"
             className={styles.ctaButton}
-            onClick={handleSubscribe}
+            onClick={() => {
+              window.location.href = "/our-plans";
+            }}
           >
             Subscribe Now
           </Button>
@@ -35,5 +31,3 @@ const CTASection = () => {
 };
 
 export default CTASection;
-
-

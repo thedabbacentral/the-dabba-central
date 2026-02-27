@@ -10,7 +10,10 @@ const Footer = () => {
         <div className={styles.grid}>
           <div className={styles.brandCol}>
             <div className={styles.brandRow}>
-              <img src="/Logo_Horizontal_Dark_Background.png" alt="The Dabba Central" />
+              <img
+                src="/Logo_Horizontal_Dark_Background.png"
+                alt="The Dabba Central"
+              />
             </div>
             <p className={styles.desc}>
               North Indian homemade meals, freshly prepared and delivered daily
@@ -54,9 +57,15 @@ const Footer = () => {
                   </div>
                 </div>
               </div>
-              <button className={styles.chatBtn} type="button">
+              <Button
+                className={styles.chatBtn}
+                as="a"
+                href="https://wa.me/917404388224?text=Hi%21%20When%20can%20I%20get%20my%20First%20Free%20Trial%20Meal%3F"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Chat Now
-              </button>
+              </Button>
             </div>
           </div>
 
@@ -72,17 +81,32 @@ const Footer = () => {
               <span className={styles.icon} aria-hidden>
                 📞
               </span>
-              <div>+91 98765 43210</div>
+              <div>+91 7088079474</div>
             </div>
             <div className={styles.contactRow}>
               <span className={styles.icon} aria-hidden>
                 ✉️
               </span>
-              <div>hello@dabbacentral.com</div>
+              <div>thedabbacentral@gmail.com</div>
             </div>
             <div className={styles.ctaStack}>
-              <Button size="lg">Claim Free Trial Meal →</Button>
-              <Button size="lg" variant="outline">
+              <Button
+                size="lg"
+                as="a"
+                href="https://wa.me/917404388224?text=Hi%21%20When%20can%20I%20get%20my%20First%20Free%20Trial%20Meal%3F"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Claim Free Trial Meal →
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                as="a"
+                href="/our-plans"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Order Now
               </Button>
             </div>

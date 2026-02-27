@@ -22,13 +22,7 @@ const DayDetails = ({
         </div>
         <div className={styles.tags}>
           <div className={styles.tag}>
-            {preference === "veg" ? (
-              <>
-                <LeafIcon size={14} /> Vegetarian
-              </>
-            ) : (
-              "Non-Vegetarian"
-            )}
+            {preference === "veg" ? <>Vegetarian</> : "Non-Vegetarian"}
           </div>
           <div className={[styles.tag, styles.muted].join(" ")}>
             {meal === "lunch" ? "Lunch" : "Dinner"}
